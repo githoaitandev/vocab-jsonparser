@@ -53,22 +53,6 @@ def paragraphs_processing(content: str):
         else:
             english_dict[field.lower()] = value.strip()
 
-    # for field in target_fields:
-        index = split_content.index(field)
-        if field == "Vocabularies":
-            preFormat = remove_special_characters(split_content[index + 1])
-            vocabsArr = re.split(":", preFormat)
-            finalVocabularies = []
-            for i in range(0, len(vocabsArr), 2):
-                vocabObj = {
-                    "term": remove_special_characters(vocabsArr[i]),
-                    "meaning": remove_special_characters(vocabsArr[i + 1])
-                }
-                finalVocabularies.append(vocabObj)
-            english_dict[field.lower()] = finalVocabularies
-        else:
-            english_dict[field.lower()] = split_content[index + 1]
-
     return english_dict
 
 # Main processor for user input
