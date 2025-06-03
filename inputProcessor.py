@@ -46,9 +46,9 @@ def paragraphs_processing(content: str):
             vocab_list = []
             for j in range(0, len(parts) - 1, 2):
                 term = remove_special_characters(parts[j])
-                meaning = remove_special_characters(parts[j + 1])
-                if term and meaning:  # Bỏ qua nếu trống
-                    vocab_list.append({"term": term, "meaning": meaning})
+                definition = remove_special_characters(parts[j + 1])
+                if term and definition:  # Bỏ qua nếu trống
+                    vocab_list.append({"term": term, "definition": definition})
             english_dict[field.lower()] = vocab_list
         else:
             english_dict[field.lower()] = value.strip()
